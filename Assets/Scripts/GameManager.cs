@@ -50,3 +50,5 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
+
+// Something tells me this is the end of the file... YOU SKRUB!! :D
