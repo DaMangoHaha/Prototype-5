@@ -13,12 +13,17 @@ public class GameManager : MonoBehaviour
     private int score;
     private float spawnRate = 1.0f;
     public Button restartButton;
+    public GameObject titleScreen;
+    private bool isGameActive = false;
 
-    void Start()
+    public void StartGame(int difficulty)
     {
+        isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
+        spawnRate /= difficulty;
+        titleScreen.SetActive(false);
     }
 
     IEnumerator SpawnTarget()

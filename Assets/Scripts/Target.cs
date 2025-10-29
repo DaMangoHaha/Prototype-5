@@ -11,12 +11,15 @@ public class Target : MonoBehaviour
     private float xRange = 2;
     private float ySpawnPos = 1;
 
-    public ParticleSystem explosionparticle;
+    public ParticleSystem explosionParticle;
+    public AudioClip explosionSound;
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        audioSource = GameObject.Find("MainCamera").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
@@ -31,8 +34,9 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
+        audioSource.PlayOneShot(explosionSound, 1f);
         Destroy(gameObject);
-        Instantiate(explosionparticle, transform.position, explosionparticle.transform.rotation);
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
         gameManager.UpdateScore(pointValue);
     }
 
