@@ -31,6 +31,7 @@ public class TargetX : MonoBehaviour
         {
             Destroy(gameObject);
             Explode();
+            gameManagerX.UpdateScore(pointValue);
         }
 
     }

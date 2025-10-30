@@ -11,9 +11,7 @@ public class GameManagerX : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
     public Button restartButton;
-
     public List<GameObject> targetPrefabs;
-
     private int score;
     private float spawnRate = 1.5f;
     public bool isGameActive;
@@ -30,7 +28,6 @@ public class GameManagerX : MonoBehaviour
         spawnRate /= difficulty;
         score = 0;
         StartCoroutine(SpawnTarget());
-
         UpdateScore(0);
         titleScreen.SetActive(false);
     }
